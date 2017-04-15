@@ -1,19 +1,14 @@
 function phoneFormat(input){
-        // Strip all characters from the input except digits
         input = input.replace(/\D/g,'');
-
-        // Trim the remaining input to ten characters, to preserve phone number format
         input = input.substring(0,10);
         var phoneNumber = document.getElementById('phoneNumber');
+        
         if(input.charAt(0) == 0 || input == 0){
                 phoneNumber.style.color = "red";
-              //  document.write('Invaild Number')
         } else {
                 phoneNumber.style.color = "black";
-                //document.write('Vaild Number')
         }
 
-        // Based upon the length of the string, we add formatting as necessary
         var size = input.length;
         if (size == 0) {
                 input = input
