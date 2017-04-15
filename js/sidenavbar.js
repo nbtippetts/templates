@@ -1,32 +1,3 @@
-function phoneFormat(input){
-        input = input.replace(/\D/g,'');
-        input = input.substring(0,10);
-        var phoneNumber = document.getElementById('phoneNumber');
-        
-        if(input.charAt(0) == 0 || input == 0){
-                phoneNumber.style.color = "red";
-        } else {
-                phoneNumber.style.color = "black";
-        }
-
-        var size = input.length;
-        if (size == 0) {
-                input = input
-        } else if(size < 4){
-                input = '('+input;
-        } else if(size < 7){
-                input = '('+input.substring(0,3)+') '+input.substring(3,6);
-        } else{
-                input = '('+input.substring(0,3)+') '+input.substring(3,6)+' - '+input.substring(6,10);
-        }
-        return input;
-   }
-   document.getElementById('phoneNumber').addEventListener('keyup',function(evt){
-        //var phoneNumber = document.getElementById('phoneNumber');
-        var charCode = (evt.which) ? evt.which : evt.keyCode;
-        phoneNumber.value = phoneFormat(phoneNumber.value);
-
-   });
 // const sideNavBar = document.querySelector(".side-navbar");
 // const rightArrow = document.getElementById('right-arrow');
 // const leftArrow = document.getElementById('left-arrow');

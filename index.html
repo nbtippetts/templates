@@ -51,7 +51,7 @@
 								<table width="100%" cellpadding="0" cellspacing="0">
 									<tr>
 										<td class="content-block" style="text-align: center;vertical-align: top;padding: 0 0 20px 20px;">
-											<img src="https://i.ytimg.com/vi/ReF6iQ7M5_A/maxresdefault.jpg" width="300px" style="max-width: 100%;">
+											<img src="thumbnail.jpg" width="300px" style="max-width: 100%;">
 											<h3 style="font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, &quot;Lucida Grande&quot;, sans-serif;color: #000;margin: 40px 0 0;line-height: 1.2;font-weight: 400;font-size: 18px;">Responsive Email Form By Noah Tippetts</h3>
 										</td>
 									</tr>
@@ -92,12 +92,42 @@
 			<td style="vertical-align: top;"></td>
 		</tr>
 	</table>
+  <script>
+  function phoneFormat(input){
+          input = input.replace(/\D/g,'');
+          input = input.substring(0,10);
+          var phoneNumber = document.getElementById('phoneNumber');
+
+          if(input.charAt(0) == 0 || input == 0){
+                  phoneNumber.style.color = "red";
+          } else {
+                  phoneNumber.style.color = "black";
+          }
+
+          var size = input.length;
+          if (size == 0) {
+                  input = input
+          } else if(size < 4){
+                  input = '('+input;
+          } else if(size < 7){
+                  input = '('+input.substring(0,3)+') '+input.substring(3,6);
+          } else{
+                  input = '('+input.substring(0,3)+') '+input.substring(3,6)+' - '+input.substring(6,10);
+          }
+          return input;
+     }
+     document.getElementById('phoneNumber').addEventListener('keyup',function(evt){
+          //var phoneNumber = document.getElementById('phoneNumber');
+          var charCode = (evt.which) ? evt.which : evt.keyCode;
+          phoneNumber.value = phoneFormat(phoneNumber.value);
+
+     });
+    </script>
 
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script> -->
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
   <script src="js/navbar.js"></script>
   <script src="js/sidenavbar.js"></script>
   <script src="js/slideshow.js"></script>
